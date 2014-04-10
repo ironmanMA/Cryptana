@@ -86,6 +86,7 @@
 
 			composebutton[i].onmouseup = function(){
 				// console.log("u");
+				$(".tableCell").remove();
 				setTimeout(function(){addcryptana();}, 1000);
 			};
 
@@ -117,7 +118,7 @@
 		if(composeUIFrame()){
 			clearTimeout(peek);
 			//----------------------//if encrypt exits dont add !!!
-
+			//remove whatever buttons are there
 			// //Changing title board
 			var messageeTitle = document.getElementsByClassName('aYF');
 			console.log(messageeTitle.length+": cryptana message title set");
@@ -133,40 +134,39 @@
 			// 	sendbuttontext[i].style.background = "#FF4040";
 			// };
 
-			//adding table element
-			var tableCell = document.createElement('td');
-			tableCell.className = "tableCell";
-
-			//add button wrapper
-			var buttonwrapper = document.createElement('div');
-			buttonwrapper.className = "buttonwrapper";
-
-			//adding a new button
-			var innerbutton = document.createElement('div');
-			innerbutton.className = "innerbutton no-select";
-			innerbutton.innerHTML="Encrypt";
-
-			buttonwrapper.appendChild(innerbutton);
-			tableCell.appendChild(buttonwrapper);
-
 			//where to add??
 			setTimeout(function(){
 				var buttonplacer = document.getElementsByClassName('n1tfz');
 				for (var i = buttonplacer.length - 1; i >= 0; i--) {
 					// buttonplacer[i].insertBefore(tableCell, buttonplacer[i].firstChild);
-					var ispresent = 0;
-					var childnodes = buttonplacer[i].childNodes;
-					for (var iter = childnodes.length - 1; iter >= 0; iter--) {
-						if (childnodes[iter].className == "tableCell") {
-							console.log("tableCell hai re");
-							ispresent=1;
-							break;
-						}
+
+					//adding table element
+					var tableCell = document.createElement('td');
+					tableCell.className = "tableCell";
+
+					//add button wrapper
+					var buttonwrapper = document.createElement('div');
+					buttonwrapper.className = "buttonwrapper";
+
+					//adding a new button
+					var innerbutton = document.createElement('div');
+					innerbutton.className = "innerbutton no-select";
+					innerbutton.innerHTML="Encrypt";
+					innerbutton.id = "innerbutton_"+i;
+					console.log("adding " + innerbutton.id);
+					buttonwrapper.appendChild(innerbutton);
+					tableCell.appendChild(buttonwrapper);
+					var isset = 0;
+					for (var iter = buttonplacer[i].childNodes.length - 1; iter >= 0; iter--) {
+						if (buttonplacer[i].childNodes[iter].className == "tableCell") {isset=1;break;};
+					};
+					if(isset==0){
+						buttonplacer[i].insertBefore(tableCell, buttonplacer.firstChild);	
 					}
-					if (ispresent==0) {
-						buttonplacer[i].insertBefore(tableCell, buttonplacer.firstChild);
-					}
+					
 				}
+				clicktoEncrypt();
+				closeComposeBox();
 
 			}, 500);
 			
@@ -180,7 +180,33 @@
 		
 	}
 
+	function clicktoEncrypt(){
+		$('.innerbutton').click(function(){
+			var button_id = this.id;
+			console.log("click on "+button_id);
+			var textholder = button_id.substring(12);
+			console.log("content here is: "+document.getElementsByClassName("gmail_default")[parseInt(textholder)].innerHTML+": ai hai");
+			document.getElementsByClassName("gmail_default")[parseInt(textholder)].innerHTML+=" idhar click kiya !!!!";
 
+		})
+	}
+
+	function closeComposeBox(){
+		var composeboxclosebutton = head.getElementsByClassName('Ha Hb');
+		for (var i = composeboxclosebutton.length - 1; i >= 0; i--) {
+			composeboxclosebutton[i].onmousedown = function(){
+
+			};
+
+			composeboxclosebutton[i].onmouseup = function(){
+				console.log("close hua reeee");
+				$(".tableCell").remove();
+				setTimeout(function(){addcryptana();}, 1000);
+			};
+
+		};
+
+	}
     waitForGmailToLoad();
 
 // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
