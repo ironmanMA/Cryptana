@@ -1,0 +1,56 @@
+.tableCell{
+	border-top: 1px solid #cfcfcf;
+	background-color: #f5f5f5;
+	padding: 1px 4px 1px 4px;
+	padding-right: 0!important;
+	white-space: nowrap;
+	margin: 0px;
+	font-family: arial,sans-serif;
+	border-spacing: 0;
+	font-size: 120%;
+}
+
+.buttonwrapper{
+	width: 68px;
+	height: 41px;
+	position: relative;
+	display: inline-block;
+	white-space: nowrap;
+	font-family: arial,sans-serif;
+	border-spacing: 0;
+	font-size: 120%;
+
+}
+
+.innerbutton{
+	background-color: rgb(255,64,64);
+	margin: 6px 2px;
+	vertical-align: middle;
+	border: 1px solid rgb(130,131,122);
+	color: white;
+	position: relative;
+	display: inline-block;
+	border-radius: 2px;
+	cursor: pointer;
+	font-family: arial,sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+	height: 27px;
+	line-height: 27px;
+	min-width: 54px;
+	outline: 0;
+	padding-right: 4px;
+	padding-left: 4px;
+	border-spacing: 0;
+
+}
+
+.no-select{
+   user-select: none;
+   -o-user-select:none;
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+}

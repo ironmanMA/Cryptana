@@ -1,0 +1,28 @@
+{
+  "name": "Cryptana",
+  "description": "Send encrypted Gmail",
+  "version": "1.0",
+  "manifest_version": 2,
+  "icons": {"default_icon": "icon16.png"},
+
+  "browser_action": {
+          "default_icon": {                    // optional
+            "19": "icon16.png"         // optional
+          },
+          "default_title": "Cryptana",      // optional; shown in tooltip
+          "default_popup": "popup.html"        // optional
+        },
+
+  "content_scripts": [
+    {
+      "matches": ["http://mail.google.com/*", "https://mail.google.com/*"],
+      "css": ["style.css"],
+      "js": ["script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "*://mail.google.com/"
+  ]
+
+}
