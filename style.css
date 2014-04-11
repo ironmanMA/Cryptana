@@ -54,3 +54,113 @@
    -khtml-user-select: none;
    -webkit-user-select: none;
 }
+
+.overlay-container{
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
+	top: 50%;
+	margin-top: -107px;
+	width: 175px;
+	height: 265px;
+	z-index: 100;
+	border-radius: 5px;
+	text-align: center;
+	font-family: arial, sans-serif;
+	font-size: 120%;
+	background: #f5f5f5;
+	overflow: hidden;
+
+}
+.option-container{
+	width: 90%;
+	margin: auto;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	background: rgba(225,68,68,0.75);
+	cursor: pointer;
+}
+
+.password-container{
+	position: absolute;
+	height: 35px;
+	width: 250px;
+	left: 50%;
+	top: 50%;
+	margin-left: -125px;
+	margin-top: -18px;
+	border-radius: 5px;
+	background-color: rgba(225,68,68,0.75);
+}
+
+.password-input{
+	height: 23px;
+	width: 225px;
+	position: absolute;
+	border-radius: 5px;
+	margin-top: 2px;
+	margin-left: 10px;
+}
+
+.decrypter-button{
+	height: 30px;
+	width: 60px;
+	overflow: hidden;
+	font-family: arial,sans-serif;
+	background-color: rgb(159,248,0);
+	font-weight: bold;
+	font-size: 12px;
+	border-radius: 2px;
+	line-height: 30px;
+	text-align: center;
+	border:1px solid rgb(180,180,180);
+	cursor: pointer;
+}
+
+.post-decrypt{
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	left: 50%;
+	top: 50%;
+	text-align: center;
+	font-family: arial,sans-serif;
+	font-weight: bold;
+	border-radius: 2px;
+	margin-left: -300px;
+	margin-top: -200px;
+	background: rgba(225,225,225,0.5);
+	z-index: 100;
+
+}
+
+.post-decrypt-close{
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-family: arial,sans-serif;
+	border-radius: 2px;
+	position: relative;
+	top: -20px;
+	right: -550px;
+	background: rgba(0,0,0,0.2);
+	cursor: pointer;
+}
+
+.post-decrypt-content{
+	width: 90%;
+	height: 90%;
+	line-height: 30px;
+	margin: auto;
+	overflow: auto;
+	border-radius: 2px;
+	font-weight: normal;
+	font-family: arial,sans-serif;
+	background: rgba(1,213,69,0.5);
+	text-align: center;
+}
