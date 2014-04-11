@@ -80,7 +80,7 @@
 		var aimButtons = head.getElementsByClassName('aim');
 		for (var i = aimButtons.length - 1; i >= 0; i--) {
 			aimButtons[i].onmouseup = function(){
-				console.log("clicked on sidebar");
+				console.log("clicked on sidebar "+aimButtons[i]);
 				setTimeout(function(){triggerRep(head);}, 1000);	
 			}
 		};
@@ -117,7 +117,7 @@
 	}
 
 	function triggerRep(head){
-		var message_bar = head.getElementsByClassName('zA yO');
+		var message_bar = head.getElementsByClassName('zA');
 
 		for (var i = message_bar.length - 1; i >= 0; i--) {
 			message_bar[i].onmousedown = function(){
@@ -173,10 +173,15 @@
 		var email_bodies = document.getElementsByClassName('adP');
 		console.log(email_bodies.length+" visible emails");
 		for (var i = email_bodies.length - 1; i >= 0; i--) {
-			email_bodies[i]
+			// email_bodies[i]
 			var pre_text = $(email_bodies[i]).find('.a3s');
+			var innertext = pre_text[0].firstChild.innerText;
 			var almost_there_text_div = pre_text[0].firstChild;
-			var innertext = almost_there_text_div.innerText;
+			if(innertext==null){
+				//fallback to innerText inside a3s div
+				almost_there_text_div = pre_text[0];
+				innertext = pre_text[0].innerText;
+			}
 			if(isCryptanaUsed(innertext)){
 				// add div
 				var decryptbutton = document.createElement('div');
@@ -490,7 +495,15 @@
 			var textholder = button_id.substring(12);//button number
 			//get Ar Au of the same number and then get gmail_default
 			var aaruElement = document.getElementsByClassName('Ar Au')[parseInt(textholder)];
-			var requiredtextfield = $(aaruElement).find('.gmail_default')[0];
+			var requiredtextfield;
+			if($(aaruElement).find('.gmail_default').length>0){
+				//check for gmail default
+				requiredtextfield = $(aaruElement).find('.gmail_default')[0]; 	
+			}else{
+				//check for .Am
+				requiredtextfield = $(aaruElement).find('.Am')[0];
+			}
+			
 			console.log("content here is: "+requiredtextfield.innerText+": ai hai");
 			// document.getElementsByClassName("gmail_default")[parseInt(textholder)].innerHTML+=" idhar click kiya !!!!";
 			whichDivtoEdit = requiredtextfield;
